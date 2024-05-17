@@ -164,6 +164,8 @@ def inner_main():
       returncode = 1
       continue
 
+    if cfg.abs_infile_path:
+      infile_path = os.path.abspath(infile_path)
     local_ctx = global_ctx.get_file_ctx(infile_path, cfg)
     process_file(cfg, local_ctx, intext)
     if not args.suppress_decorations:
